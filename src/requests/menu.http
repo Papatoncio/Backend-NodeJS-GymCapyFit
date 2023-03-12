@@ -2,12 +2,12 @@
 GET http://localhost:3000/api/menu
 
 ###Crear Menu
-POST http://localhost:3000/api/menu
+POST http://localhost:4000/api/menu
 Content-Type: application/json
 
 {
     "IdMenu": 1,
-    "Nombre": "Administrador",
+    "Nombre": "admin",
     "Privilegios": ["CRUD-Empleado","CRUD-Clases"]
 }
 

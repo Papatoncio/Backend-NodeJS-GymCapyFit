@@ -3,4 +3,5 @@ config();
 
 export default {
     mongodbURL: process.env.MONGODB_URI,
+    SECRET: 'gymcapyfit-api'
 }

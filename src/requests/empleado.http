@@ -14,7 +14,7 @@ Content-Type: application/json
     "Sueldo": 10000.00,
     "Turno": "Matutino",
     "Correo": "Juanpij23@hotmail.com",
-    "Contraseña": "linux"
+    "Password": "linux"
 }
 
 ###Obtener Empleado por ID
@@ -39,5 +39,5 @@ Content-Type: application/json
     "Sueldo": 8000.00,
     "Turno": "Vespertino",
     "Correo": "Juanpij23@hotmail.com",
-    "Contraseña": "linux"
+    "Password": "linux"
 }

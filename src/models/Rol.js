@@ -1,5 +1,7 @@
 import { Schema, model } from "mongoose";
 
+export const ROLES = ["admin", "instructor", "limpieza", "mantenimiento"];
+
 const rolSchema = new Schema({
     IdRol: {
         type: Number,

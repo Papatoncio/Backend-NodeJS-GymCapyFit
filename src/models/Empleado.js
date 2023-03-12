@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+import bcrypt from 'bcryptjs';
 
 const empleadoSchema = new Schema({
     IdEmpleado: {
@@ -17,8 +18,7 @@ const empleadoSchema = new Schema({
     },
     Rol: [{
         type: String,
-        required: true,
-        trim: true
+        required: true
     }],
     Telefono: [{
         type: Number,
@@ -40,14 +40,22 @@ const empleadoSchema = new Schema({
         required: true,
         trim: true
     },
-    Contraseña: {
+    Password: {
         type: String,
         required: true,
-        trim: true
     }
 }, {
     versionKey: false,
     timestamps: true
 });
+
+empleadoSchema.statics.encryptPassword = async (Password) => {
+    const salt = await bcrypt.genSalt(10);
+    return await bcrypt.hash(Password, salt);
+}
+
+empleadoSchema.statics.comparePassword = async (Password, recivedPassword) => {
+    return await bcrypt.compare(Password, recivedPassword);
+}
 
 export default model('Empleado', empleadoSchema);

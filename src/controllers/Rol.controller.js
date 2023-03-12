@@ -20,7 +20,7 @@ export const createRol = async (req, res) => {
         IdRol: req.body.IdRol,
         Nombre: req.body.Nombre,
         Descripcion: req.body.Descripcion,
-        Privilegios: req.body.Privilegios
+        Menu: req.body.Menu
     });
     const rolSaved = await newRol.save();
     res.json(rolSaved);
