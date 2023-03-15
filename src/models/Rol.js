@@ -15,10 +15,10 @@ const rolSchema = new Schema({
         type: String,
         required: true
     },
-    Menu: {
+    Menu: [{
         type: String,
         required: true
-    },
+    }],
 }, {
     versionKey: false,
     timestamps: true

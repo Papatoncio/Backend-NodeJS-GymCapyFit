@@ -3,21 +3,19 @@ import { Schema, model } from "mongoose";
 const checkInSchema = new Schema({
     IdEmpleado: {
         type: Number,
-        required: true,
-        trim: true
+        required: true
     },
     Fecha: {
         type: String,
-        required: true,
+        required: true
     },
     Hora: {
         type: String,
-        required: true,
+        required: true
     },
     Tipo: {
         type: String,
-        required: true,
-        trim: true
+        required: true
     },
 }, {
     versionKey: false,

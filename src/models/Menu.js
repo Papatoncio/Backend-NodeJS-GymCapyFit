@@ -3,18 +3,15 @@ import { Schema, model } from "mongoose";
 const menuSchema = new Schema({
     IdMenu: {
         type: Number,
-        required: true,
-        trim: true
+        required: true
     },
     Nombre: {
         type: String,
-        required: true,
-        trim: true
+        required: true
     },
     Privilegios: [{
         type: String,
-        required: true,
-        trim: true
+        required: true
     }]
 }, {
     versionKey: false,
