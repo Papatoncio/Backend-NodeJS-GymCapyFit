@@ -5,7 +5,6 @@ const empleadoSchema = new Schema({
     IdEmpleado: {
         type: Number,
         required: true,
-        trim: true
     },
     Nombre: {
         type: String,
@@ -13,8 +12,7 @@ const empleadoSchema = new Schema({
     },
     Edad: {
         type: Number,
-        required: true,
-        trim: true
+        required: true
     },
     Rol: [{
         type: String,
@@ -22,31 +20,27 @@ const empleadoSchema = new Schema({
     }],
     Telefono: [{
         type: Number,
-        required: true,
-        trim: true
+        required: true
     }],
     Sueldo: {
         type: Number,
-        required: true,
-        trim: true
+        required: true
     },
     Turno: {
         type: String,
-        required: true,
-        trim: true
+        required: true
     },
     Correo: {
         type: String,
-        required: true,
-        trim: true
+        required: true
     },
     Password: {
         type: String,
-        required: true,
+        required: true
     }
 }, {
-    versionKey: false,
-    timestamps: true
+    timestamps: true,
+    versionKey: false
 });
 
 empleadoSchema.statics.encryptPassword = async (Password) => {

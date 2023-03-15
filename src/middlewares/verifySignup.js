@@ -2,7 +2,7 @@ import { ROLES } from "../models/Rol";
 import Empleado from "../models/Empleado";
 
 export const checkDuplicatedId = async (req, res, next) => {
-    const empleado = await Empleado.findOne({ Id: req.body.IdEmpleado });
+    const empleado = await Empleado.findOne({ IdEmpleado: req.body.IdEmpleado });
 
     if (empleado) return res.status(400).json({ message: "The empleado already exists" });
 

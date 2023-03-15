@@ -26,12 +26,70 @@ export const verifyToken = async (req, res, next) => {
 
 export const isAdmin = async (req, res, next) => {
     const empleado = await Empleado.findById(req.IdEmpleado);
-    const rol = await Rol.find({ Nombre: empleado.Rol });
+    const roles = await Rol.find({ _id: { $in: empleado.Rol } });
 
-    if (rol.Nombre === "admin") {
-        next();
-        return;
+    for (let i = 0; i < roles.length; i++) {
+        if (roles[i].Nombre === "admin") {
+            next();
+            return;
+        }
     }
 
     return res.status(403).json({ message: "Require Admin role" });
+}
+
+export const isInstructor = async (req, res, next) => {
+    const empleado = await Empleado.findById(req.IdEmpleado);
+    const roles = await Rol.find({ _id: { $in: empleado.Rol } });
+
+    for (let i = 0; i < roles.length; i++) {
+        if (roles[i].Nombre === "instructor") {
+            next();
+            return;
+        }
+    }
+
+    return res.status(403).json({ message: "Require Instructor role" });
+}
+
+export const isMantenimiento = async (req, res, next) => {
+    const empleado = await Empleado.findById(req.IdEmpleado);
+    const roles = await Rol.find({ _id: { $in: empleado.Rol } });
+
+    for (let i = 0; i < roles.length; i++) {
+        if (roles[i].Nombre === "mantenimiento") {
+            next();
+            return;
+        }
+    }
+
+    return res.status(403).json({ message: "Require Mantenimiento role" });
+}
+
+export const isLimpieza = async (req, res, next) => {
+    const empleado = await Empleado.findById(req.IdEmpleado);
+    const roles = await Rol.find({ _id: { $in: empleado.Rol } });
+
+    for (let i = 0; i < roles.length; i++) {
+        if (roles[i].Nombre === "limpieza") {
+            next();
+            return;
+        }
+    }
+
+    return res.status(403).json({ message: "Require Limpieza role" });
+}
+
+export const isUsuario = async (req, res, next) => {
+    const empleado = await Empleado.findById(req.IdEmpleado);
+    const roles = await Rol.find({ _id: { $in: empleado.Rol } });
+
+    for (let i = 0; i < roles.length; i++) {
+        if (roles[i].Nombre === "usuario") {
+            next();
+            return;
+        }
+    }
+
+    return res.status(403).json({ message: "Require usuario role" });
 }

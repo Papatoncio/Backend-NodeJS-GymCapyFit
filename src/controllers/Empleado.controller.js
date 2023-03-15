@@ -96,3 +96,8 @@ export const signin = async (req, res) => {
 
     res.json({ token });
 }
+
+export const verificarRol = async (req, res) => {
+    const EmpleadoIdEmpleado = await Empleado.find({ IdEmpleado: req.params.IdEmpleado });
+    res.json(EmpleadoIdEmpleado);
+}

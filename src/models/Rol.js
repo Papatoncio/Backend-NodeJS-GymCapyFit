@@ -1,27 +1,23 @@
 import { Schema, model } from "mongoose";
 
-export const ROLES = ["admin", "instructor", "limpieza", "mantenimiento"];
+export const ROLES = ["admin", "instructor", "limpieza", "mantenimiento", "usuario"];
 
 const rolSchema = new Schema({
     IdRol: {
         type: Number,
-        required: true,
-        trim: true
+        required: true
     },
     Nombre: {
         type: String,
-        required: true,
-        trim: true
+        required: true
     },
     Descripcion: {
         type: String,
-        required: true,
-        trim: true
+        required: true
     },
     Menu: {
         type: String,
-        required: true,
-        trim: true
+        required: true
     },
 }, {
     versionKey: false,
