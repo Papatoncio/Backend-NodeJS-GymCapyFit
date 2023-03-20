@@ -3,10 +3,6 @@ import { Schema, model } from "mongoose";
 export const ROLES = ["admin", "instructor", "limpieza", "mantenimiento", "usuario"];
 
 const rolSchema = new Schema({
-    IdRol: {
-        type: Number,
-        required: true
-    },
     Nombre: {
         type: String,
         required: true
@@ -15,7 +11,7 @@ const rolSchema = new Schema({
         type: String,
         required: true
     },
-    Menu: [{
+    Privilegios: [{
         type: String,
         required: true
     }],

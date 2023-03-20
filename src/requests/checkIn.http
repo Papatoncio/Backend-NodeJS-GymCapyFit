@@ -1,14 +1,14 @@
 ###Obtener Todos los CheckIn
-GET http://localhost:3000/api/checkin
+GET http://localhost:4000/api/checkin
 
 ###Crear CheckIn
-POST http://localhost:3000/api/checkin
+POST http://localhost:4000/api/checkin
 Content-Type: application/json
 
 {
     "IdEmpleado":1221100262,
-    "Fecha":"28/02/2023",
-    "Hora":"21:45",
+    "Fecha":"19-03-2023",
+    "Hora":"2:21",
     "Tipo":"Entrada"
 }
 
@@ -19,7 +19,7 @@ GET http://localhost:3000/api/checkin/63feea9df46b4a233c7dcb96
 DELETE http://localhost:3000/api/checkin/63fedfd7c488a03dfd3a6c79
 
 ###Obtener Todos los CheckIn por IdEmpleado
-GET http://localhost:3000/api/checkin/IdEmpleado/1221100262
+GET http://localhost:4000/api/checkin/IdEmpleado/1221100262
 
 ###Actualizar CheckIn por ID
 PUT http://localhost:3000/api/checkin/63feea9df46b4a233c7dcb96
@@ -31,3 +31,6 @@ Content-Type: application/json
     "Hora":"00:04",
     "Tipo":"Salida"
 }
+
+###
+GET http://localhost:4000/api/checkin/reviewChecks/1221100292/19-2-2023

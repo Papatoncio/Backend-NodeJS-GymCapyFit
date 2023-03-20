@@ -4,7 +4,6 @@ import cors from "cors";
 
 import CheckIn from "./routes/checkIn.routes";
 import Empleado from "./routes/empleado.routes";
-import Menu from "./routes/menu.routes";
 import Rol from "./routes/rol.routes";
 
 const app = express();
@@ -24,7 +23,6 @@ app.get('/', (req, res) => {
 
 app.use('/api/checkin', CheckIn);
 app.use('/api/empleado', Empleado);
-app.use('/api/menu', Menu);
 app.use('/api/rol', Rol);
 
 export default app

@@ -16,4 +16,6 @@ router.get('/IdEmpleado/:id', checkInController.findCheckInIdEmpleado);
 
 router.put('/:id', checkInController.updateCheckIn);
 
+router.get('/reviewChecks/:id/:fecha', checkInController.findChecksInDay);
+
 export default router

@@ -1,5 +1,5 @@
 ###Obtener todos los Empleados
-GET http://localhost:3000/api/empleado
+GET http://localhost:4000/api/empleado
 
 ###Crear Empleado
 POST http://localhost:3000/api/empleado
@@ -18,13 +18,13 @@ Content-Type: application/json
 }
 
 ###Obtener Empleado por ID
-GET http://localhost:3000/api/empleado/63ffbdd44e8c96c0c60f038d
+GET http://localhost:4000/api/empleado/63ffbdd44e8c96c0c60f038d
 
 ###Eliminar Empleado por ID
 DELETE http://localhost:3000/api/empleado/63ffbdd44e8c96c0c60f038d
 
 ###Obtener Empleado por IdEmpleado
-GET http://localhost:3000/api/empleado/IdEmpleado/1221100262
+GET http://localhost:4000/api/empleado/IdEmpleado/1234567890
 
 ###Actualizar Empleado
 PUT http://localhost:3000/api/empleado/63ffbdd44e8c96c0c60f038d

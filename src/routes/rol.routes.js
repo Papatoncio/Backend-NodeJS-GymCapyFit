@@ -12,7 +12,7 @@ router.post('/', rolController.createRol);
 
 router.delete('/:id', rolController.deleteRol);
 
-router.get('/IdRol/:id', rolController.findRolIdRol);
+router.get('/Nombre/:id', rolController.findRolNombre);
 
 router.put('/:id', rolController.updateRol);
 

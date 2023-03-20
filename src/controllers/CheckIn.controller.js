@@ -11,7 +11,7 @@ export const findOneCheckIn = async (req, res) => {
 }
 
 export const findCheckInIdEmpleado = async (req, res) => {
-    const IdEmpleadoCheckIn = await CheckIn.find(req.params.IdEmpleado);
+    const IdEmpleadoCheckIn = await CheckIn.findById(req.params.IdEmpleado);
     res.json(IdEmpleadoCheckIn);
 }
 
@@ -38,4 +38,16 @@ export const updateCheckIn = async (req, res) => {
     res.json({
         message: "CheckIn was updated successfully"
     });
+}
+
+export const findChecksInDay = async (req, res) => {
+    const checkIns = await CheckIn.count({ IdEmpleado: req.params.id, Fecha: req.params.fecha });
+
+    if (!checkIns) {
+        console.log("Encontrado")
+    } else {
+        console.log("Error");
+    }
+
+    res.json(checkIns);
 }

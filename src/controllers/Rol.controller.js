@@ -10,17 +10,16 @@ export const findOneRol = async (req, res) => {
     res.json(oneRol);
 }
 
-export const findRolIdRol = async (req, res) => {
-    const RolIdRol = await Rol.find(req.params.IdRol);
-    res.json(RolIdRol);
+export const findRolNombre = async (req, res) => {
+    const RolNombre = await Rol.find({ Nombre: req.params.id });
+    res.json(RolNombre);
 }
 
 export const createRol = async (req, res) => {
     const newRol = new Rol({
-        IdRol: req.body.IdRol,
         Nombre: req.body.Nombre,
         Descripcion: req.body.Descripcion,
-        Menu: req.body.Menu
+        Privilegios: req.body.Privilegios
     });
     const rolSaved = await newRol.save();
     res.json(rolSaved);

@@ -19,7 +19,7 @@ const checkInSchema = new Schema({
     },
 }, {
     versionKey: false,
-    timestamps: true
+    timestamps: false
 });
 
 export default model('CheckIn', checkInSchema);
