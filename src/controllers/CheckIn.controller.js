@@ -11,7 +11,7 @@ export const findOneCheckIn = async (req, res) => {
 }
 
 export const findCheckInIdEmpleado = async (req, res) => {
-    const IdEmpleadoCheckIn = await CheckIn.findById(req.params.IdEmpleado);
+    const IdEmpleadoCheckIn = await CheckIn.find({ IdEmpleado: req.params.IdEmpleado });
     res.json(IdEmpleadoCheckIn);
 }
 
