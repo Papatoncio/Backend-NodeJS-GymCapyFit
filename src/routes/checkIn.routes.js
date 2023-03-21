@@ -12,8 +12,6 @@ router.post('/', checkInController.createCheckIn);
 
 router.delete('/:id', checkInController.deleteCheckIn);
 
-router.get('/IdEmpleado/:id', checkInController.findCheckInIdEmpleado);
-
 router.put('/:id', checkInController.updateCheckIn);
 
 router.get('/reviewChecks/:id/:fecha', checkInController.findChecksInDay);

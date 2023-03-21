@@ -12,8 +12,6 @@ router.post('/', rolController.createRol);
 
 router.delete('/:id', rolController.deleteRol);
 
-router.get('/Nombre/:id', rolController.findRolNombre);
-
 router.put('/:id', rolController.updateRol);
 
 export default router

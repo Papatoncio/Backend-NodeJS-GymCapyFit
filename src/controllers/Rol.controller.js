@@ -6,13 +6,8 @@ export const findAllRol = async (req, res) => {
 }
 
 export const findOneRol = async (req, res) => {
-    const oneRol = await Rol.findById(req.params.id);
+    const oneRol = await Rol.find({ Nombre: req.params.id });
     res.json(oneRol);
-}
-
-export const findRolNombre = async (req, res) => {
-    const RolNombre = await Rol.find({ Nombre: req.params.id });
-    res.json(RolNombre);
 }
 
 export const createRol = async (req, res) => {
@@ -26,14 +21,25 @@ export const createRol = async (req, res) => {
 }
 
 export const deleteRol = async (req, res) => {
-    await Rol.findByIdAndDelete(req.params.id);
+    const deletedRol = await Rol.deleteOne({ Nombre: req.params.id });
+
+    if (deletedRol.deletedCount == 0) return res.json({ message: "Rol Not Found" });
+
     res.json({
         message: 'Rol were deleted succesfully'
     });
 }
 
 export const updateRol = async (req, res) => {
-    await Rol.findByIdAndUpdate(req.params.id, req.body);
+    const updatedRol = await Rol.updateOne(
+        { Nombre: req.params.id },
+        {
+            Descripcion: req.body.Descripcion,
+            Privilegios: req.body.Privilegios
+        });
+
+    if (updatedRol.modifiedCount == 0) return res.json({ message: "Rol Not Found" });
+
     res.json({
         message: "Rol was updated successfully"
     });

@@ -9,12 +9,7 @@ export const findAllEmpleado = async (req, res) => {
 }
 
 export const findOneEmpleado = async (req, res) => {
-    const oneEmpleado = await Empleado.findById(req.params.id);
-    res.json(oneEmpleado);
-}
-
-export const findEmpleadoIdEmpleado = async (req, res) => {
-    const EmpleadoIdEmpleado = await Empleado.findOne({ IdEmpleado: req.params.id });
+    const EmpleadoIdEmpleado = await Empleado.find({ IdEmpleado: req.params.id });
     res.json(EmpleadoIdEmpleado);
 }
 
@@ -35,14 +30,32 @@ export const createEmpleado = async (req, res) => {
 }
 
 export const deleteEmpleado = async (req, res) => {
-    await Empleado.findByIdAndDelete(req.params.id);
+    const deletedEmpleado = await Empleado.deleteOne({ IdEmpleado: req.params.id });
+
+    if (deletedEmpleado.deletedCount == 0) return res.json({ message: "Empleado Not Found" });
+
     res.json({
         message: 'Empleado were deleted succesfully'
     });
 }
 
 export const updateEmpleado = async (req, res) => {
-    await Empleado.findByIdAndUpdate(req.params.id, req.body);
+    const updatedEmpleado = await Empleado.updateOne(
+        { IdEmpleado: req.params.id },
+        {
+            Nombre: req.body.Nombre,
+            Edad: req.body.Edad,
+            Telefono: req.body.Telefono,
+            Sueldo: req.body.Sueldo,
+            Turno: req.body.Turno,
+            Correo: req.body.Correo,
+            Password: await Empleado.encryptPassword(req.body.Password)
+        });
+
+    console.log(updatedEmpleado);
+
+    if (updatedEmpleado.modifiedCount == 0) return res.json({ message: "Empleado Not Found" });
+
     res.json({
         message: "Empleado was updated successfully"
     });

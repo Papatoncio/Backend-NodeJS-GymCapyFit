@@ -6,13 +6,8 @@ export const findAllCheckIn = async (req, res) => {
 }
 
 export const findOneCheckIn = async (req, res) => {
-    const oneCheckIn = await CheckIn.findById(req.params.id);
+    const oneCheckIn = await CheckIn.find({ IdEmpleado: req.params.id });
     res.json(oneCheckIn);
-}
-
-export const findCheckInIdEmpleado = async (req, res) => {
-    const IdEmpleadoCheckIn = await CheckIn.find({ IdEmpleado: req.params.IdEmpleado });
-    res.json(IdEmpleadoCheckIn);
 }
 
 export const createCheckIn = async (req, res) => {
@@ -27,14 +22,26 @@ export const createCheckIn = async (req, res) => {
 }
 
 export const deleteCheckIn = async (req, res) => {
-    await CheckIn.findByIdAndDelete(req.params.id);
+    const deletedCheckIn = await CheckIn.deleteOne({ IdEmpleado: req.params.id });
+
+    if (deletedCheckIn.deletedCount == 0) return res.json({ message: "CheckIn Not Found" });
+
     res.json({
         message: 'CheckIn were deleted succesfully'
     });
 }
 
 export const updateCheckIn = async (req, res) => {
-    await CheckIn.findByIdAndUpdate(req.params.id, req.body);
+    const updatedCheckIn = await CheckIn.updateOne(
+        { IdEmpleado: req.params.id },
+        {
+            Fecha: req.body.Fecha,
+            Hora: req.body.Hora,
+            Tipo: req.body.Tipo
+        });
+
+    if (updatedCheckIn.modifiedCount == 0) return res.json({ message: "CheckIn Not Found" });
+
     res.json({
         message: "CheckIn was updated successfully"
     });
